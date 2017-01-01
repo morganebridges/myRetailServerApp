@@ -31,16 +31,16 @@ public class ProductController {
     @Autowired
     ProductRepository pRepo;
 
-    @RequestMapping(path="/")
+    /*@RequestMapping(path="/")
     public ResponseEntity<Product> getProduct(@RequestBody String id, HttpServletRequest request, HttpServletResponse response){
         Product prod = pRepo.findById(id);
         if(prod != null)
             return new ResponseEntity<>(prod, HttpStatus.OK);;
         return new ResponseEntity<>(prod, HttpStatus.OK);
-    }
+    }*/
 
     @RequestMapping(path="/")
-    public ResponseEntity<List<Product>> getProducts(@RequestBody List<String> ids, HttpServletRequest request, HttpServletResponse response){
+    public ResponseEntity<List<Product>> getProducts(@RequestBody List<String> ids, HttpServletResponse response){
         List<Product> returnList = new ArrayList<>();
         ids.forEach(
                 id -> {
@@ -58,32 +58,37 @@ public class ProductController {
     }
 
     @RequestMapping(path="/getlist", method=RequestMethod.GET)
-    ResponseEntity<List<Product>> getProductTest(HttpServletRequest request, HttpServletResponse response){
+    ResponseEntity<List<Product>> getProductTest(HttpServletResponse response){
         List<Product> prod2 = pRepo.findAll();
         if(prod2 != null)
             return new ResponseEntity<>(prod2, HttpStatus.OK);
         return new ResponseEntity<>(prod2, HttpStatus.BAD_REQUEST);
     }
 
-    @RequestMapping(path="/add", method=RequestMethod.GET)
-    ResponseEntity<Product> insertProduct(Product insertProd, HttpServletRequest request, HttpServletResponse response){
+    @RequestMapping(path="/add", method=RequestMethod.POST)
+    ResponseEntity<Product> insertProduct(Product insertProd, HttpServletResponse response){
         Product returnProd = pRepo.insert(insertProd);
         if(returnProd != null)
             return new ResponseEntity<Product>(returnProd, HttpStatus.OK);
         return new ResponseEntity<Product>(returnProd, HttpStatus.BAD_REQUEST);
     }
 
-    @RequestMapping(path="/update", method = RequestMethod.POST)
-    Product updateProduct(@RequestBody Product product){
+    @RequestMapping(path="/update", method = RequestMethod.PUT)
+    ResponseEntity<Product> updateProduct(@RequestBody Product product){
         System.out.println(product.toString());
         String id = product.id;
         Product updateProd = pRepo.findById(id);
-        System.out.println(updateProd.toString());
-        updateProd.name = product.name;
-        updateProd.price = product.price;
-        Product savedProd = pRepo.save(updateProd);
-        System.out.println(savedProd.toString());
-        return savedProd;
+        if(updateProd != null){
+            System.out.println(updateProd.toString());
+            updateProd.name = product.name;
+            updateProd.price = product.price;
+            Product savedProd = pRepo.save(updateProd);
+            if(savedProd != null){
+                return new ResponseEntity<Product>(savedProd, HttpStatus.OK);
+            }
+        }
+        return new ResponseEntity<Product>(updateProd, HttpStatus.BAD_REQUEST);
+
     }
 
 }
