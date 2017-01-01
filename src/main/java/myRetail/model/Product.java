@@ -2,18 +2,17 @@ package myRetail.model;
 
 import org.springframework.data.annotation.Id;
 
-
 public class Product {
 
     @Id
     public String id;
 
     public String name;
-    public double price;
+    public Price price;
 
     public Product() {}
 
-    public Product(String name, double price) {
+    public Product(String name, Price price) {
         this.name = name;
         this.price = price;
     }
@@ -21,7 +20,7 @@ public class Product {
     @Override
     public String toString() {
         return String.format(
-                "Customer[id=%s, Name='%s', Price='%s']",
+                "Product[id=%s, Name='%s', Price='%s']",
                 id, name, price);
     }
 
