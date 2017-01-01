@@ -1,16 +1,9 @@
 package myRetail.controller;
 
 import myRetail.repository.ProductRepository;
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
 import myRetail.model.Product;
-import myRetail.model.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,16 +24,19 @@ public class ProductController {
     @Autowired
     ProductRepository pRepo;
 
-    /*@RequestMapping(path="/")
-    public ResponseEntity<Product> getProduct(@RequestBody String id, HttpServletRequest request, HttpServletResponse response){
+    @RequestMapping(path="/{id}")
+    public ResponseEntity<Product> getProduct(@PathVariable String id, HttpServletResponse response){
+        System.out.println("Running get method");
+        System.out.println(id);
         Product prod = pRepo.findById(id);
+        System.out.println(prod.toString());
         if(prod != null)
-            return new ResponseEntity<>(prod, HttpStatus.OK);;
+            return new ResponseEntity<>(prod, HttpStatus.OK);
         return new ResponseEntity<>(prod, HttpStatus.OK);
-    }*/
+    }
 
-    @RequestMapping(path="/")
-    public ResponseEntity<List<Product>> getProducts(@RequestBody List<String> ids, HttpServletResponse response){
+   /* @RequestMapping(path="/{ids}", method=RequestMethod.GET)
+    public ResponseEntity<List<Product>> getProducts(@RequestParam  List<String> ids, HttpServletResponse response){
         List<Product> returnList = new ArrayList<>();
         ids.forEach(
                 id -> {
@@ -50,7 +46,7 @@ public class ProductController {
                 }
         );
         return new ResponseEntity<>(returnList, HttpStatus.OK);
-    }
+    }*/
 
     @RequestMapping(path = "/hello", method=RequestMethod.POST)
     String hello(@RequestBody String name ) {
