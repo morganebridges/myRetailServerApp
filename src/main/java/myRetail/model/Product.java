@@ -7,7 +7,6 @@ import java.math.BigInteger;
 public class Product {
 
 
-    public String id;
     @Id
     public Integer sequence;
     public String name;
@@ -24,7 +23,7 @@ public class Product {
     public String toString() {
         return String.format(
                 "Product[id=%s, Name='%s', Price='%s']",
-                id, name, price);
+                sequence, name, price);
     }
 
 }

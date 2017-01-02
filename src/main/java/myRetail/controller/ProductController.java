@@ -83,7 +83,8 @@ public class ProductController {
     ResponseEntity<Product> updateProduct(@RequestBody Product product){
         System.out.println(product.toString());
         Integer sequence = product.sequence;
-        Product updateProd = pRepo.findBySequence(sequence);
+        Integer sequence = product.sequence;
+        Product updateProd = pRepo.findById(sequence);
         if(updateProd != null){
             System.out.println(updateProd.toString());
             updateProd.name = product.name;
