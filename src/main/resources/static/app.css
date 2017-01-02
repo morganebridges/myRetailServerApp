@@ -1,0 +1,64 @@
+/* app css stylesheet */
+
+.menu {
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
+}
+
+.menu:before {
+    content: "[";
+}
+
+.menu:after {
+    content: "]";
+}
+
+.menu > li {
+    display: inline;
+}
+
+.menu > li:before {
+    content: "|";
+    padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+    content: "";
+    padding: 0;
+}
+
+body {
+    font-size: 1.5em !important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #027394 !important;
+
+}
+
+body a {
+    color: #b64202;
+}
+
+body h2 {
+    color: #027394;
+}
+
+.primeButton {
+    background: rgba(2, 115, 148, .6) !important;
+}
+
+.pagination_div {
+    align-self: center;
+
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+    background: rgba(2, 115, 148, .4)
+
+}
+
+.table-striped {
+    margin: 0;
+}
