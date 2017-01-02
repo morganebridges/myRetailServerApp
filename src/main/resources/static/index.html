@@ -51,14 +51,14 @@
                         <p id="introduction" style="margin:5px">
 
                         <div class="list-group" style="width:90%" >
-                            <a href="#" class="list-group-item ng-cloak" ng-repeat="item in products" ng-click="select(item.id)">{{item.name}}   {{item.price.value}}   {{item.price.currency_code}} </a>
+                            <a href="#" class="list-group-item ng-cloak" ng-repeat="item in products" ng-click="select(item.id)" ng-cloak>{{item.name}}   {{item.price.value}}   {{item.price.currency_code}} </a>
                         </div>
 
                     </div>
 
                 </div>
             </div>
-            <div id="editPane" class="col-md-3 input-group ng-cloak" ng-show="editMode">
+            <div id="editPane" class="col-md-3 input-group ng-cloak" ng-show="editMode" ng-cloak>
 
                 <div class="container">
                     <h3>Edit Product</h3>
