@@ -1,5 +1,6 @@
 package myRetail.controller;
 
+import myRetail.model.ProductDTO;
 import myRetail.repository.ProductRepository;
 import myRetail.service.ProductService;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -59,20 +60,22 @@ public class ProductController {
     }
 
     @RequestMapping(path="/getlist", method=RequestMethod.GET)
-    ResponseEntity<List<Product>> getProductTest(HttpServletResponse response){
+    ResponseEntity<List<ProductDTO>> getProductTest(HttpServletResponse response){
         response.addHeader("Access-Control-Allow-Origin", "*");
         response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
         response.addHeader("Access-Control-Allow-Headers", "Content-Type");
         response.addHeader("Access-Control-Max-Age", "1800");//30 min
-        List<Product> prod2 = pRepo.findAll();
-        if(prod2 != null)
-            return new ResponseEntity<>(prod2, HttpStatus.OK);
-        return new ResponseEntity<>(prod2, HttpStatus.BAD_REQUEST);
+
+        List<ProductDTO> returnList = pService.getAllDTO();
+        if(returnList != null)
+            return new ResponseEntity<>(returnList, HttpStatus.OK);
+        return new ResponseEntity<>(returnList, HttpStatus.BAD_REQUEST);
     }
 
     @RequestMapping(path="/add", method=RequestMethod.POST)
-    ResponseEntity<Product> insertProduct(Product insertProd, HttpServletResponse response){
-        Product returnProd = pRepo.insert(insertProd);
+    ResponseEntity<Product> insertProduct(ProductDTO insertProd, HttpServletResponse response){
+        Product newProd = new Product(insertProd.getName(), insertProd.getPrice());
+        Product returnProd = pRepo.insert(newProd);
 
         if(returnProd != null)
             return new ResponseEntity<Product>(returnProd, HttpStatus.OK);
@@ -80,14 +83,14 @@ public class ProductController {
     }
 
     @RequestMapping(path="/update", method = RequestMethod.PUT)
-    ResponseEntity<Product> updateProduct(@RequestBody Product product){
-        int searchId = Integer.parseInt(product.id);
-        Product updateProd = pRepo.findById(searchId);
+    ResponseEntity<Product> updateProduct(@RequestBody ProductDTO product){
+        int searchId = product.getId();
+        Product updateProd = pRepo.findBySequence(searchId);
 
         if(updateProd != null){
             System.out.println(updateProd.toString());
-            updateProd.name = product.name;
-            updateProd.price = product.price;
+            updateProd.name = product.getName();
+            updateProd.price = product.getPrice();
 
             Product savedProd = pService.save(updateProd);
             if(savedProd != null){

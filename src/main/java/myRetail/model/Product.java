@@ -6,8 +6,8 @@ import java.math.BigInteger;
 
 public class Product {
 
-    public String id;
     @Id
+    public String id;
     public Integer sequence;
     public String name;
     public Price price;

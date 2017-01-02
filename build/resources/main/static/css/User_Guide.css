@@ -37,8 +37,8 @@ ul, ol {
 }
 #help_content{
     color:black;
-    overflow-y: scroll;
     margin-bottom: 20px;
+    margin-righ: 5px;
     border: 2px outset black;
     box-shadow: 0 0 8px #027394 ;
     scrollbar-darkshadow-color: black;
@@ -47,10 +47,10 @@ ul, ol {
 
 }
 .rounded_border{
-    border-bottom-right-radius: 80px;
+    border-bottom-right-radius: 60px;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
-    border-top-right-radius: 80px;
+    border-top-right-radius: 60px;
 
 }
 body {
@@ -77,26 +77,16 @@ body {
     #installation_block{
         height:380px;
     }
-    #operations_block{
-        height:380px;
-    }
 }
 @media only screen and (max-width:800px){
     h2{
-        font-size: 3vw;
+        font-size: 2.4vw;
     }
 }
 @media only screen and (max-width:800px){
     #installation_block{
-        font-size: 3vw;
+        font-size: 2.4vw;
         transition: left.5s;
-        -webkit-transition: width 0.3s ease, margin 0.3s ease;
-        -moz-transition: width 0.3s ease, margin 0.3s ease;
-        -o-transition: width 0.3s ease, margin 0.3s ease;
-        transition: width 0.3s ease, margin 0.3s ease;
-    }
-    #operations_block{
-        font-size: 3vw;
         -webkit-transition: width 0.3s ease, margin 0.3s ease;
         -moz-transition: width 0.3s ease, margin 0.3s ease;
         -o-transition: width 0.3s ease, margin 0.3s ease;

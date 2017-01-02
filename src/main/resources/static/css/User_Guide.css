@@ -47,10 +47,10 @@ ul, ol {
 
 }
 .rounded_border{
-    border-bottom-right-radius: 80px;
+    border-bottom-right-radius: 60px;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
-    border-top-right-radius: 80px;
+    border-top-right-radius: 60px;
 
 }
 body {

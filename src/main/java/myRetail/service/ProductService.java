@@ -1,10 +1,12 @@
 package myRetail.service;
 
 import myRetail.model.Product;
+import myRetail.model.ProductDTO;
 import myRetail.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,5 +26,16 @@ public class ProductService {
         }
         Product theReturn = pRepo.save(product);
         return theReturn;
+    }
+    public List<ProductDTO> getAllDTO(){
+        List<Product> prod2 = pRepo.findAll();
+        List<ProductDTO> returnList = new ArrayList<>();
+
+        prod2.forEach(
+                product -> {
+                    returnList.add(ProductDTO.dtoFromProduct(product));
+                }
+        );
+        return returnList;
     }
 }
