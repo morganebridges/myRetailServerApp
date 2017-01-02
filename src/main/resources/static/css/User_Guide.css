@@ -38,6 +38,7 @@ ul, ol {
 #help_content{
     color:black;
     margin-bottom: 20px;
+    margin-righ: 5px;
     border: 2px outset black;
     box-shadow: 0 0 8px #027394 ;
     scrollbar-darkshadow-color: black;
@@ -79,12 +80,12 @@ body {
 }
 @media only screen and (max-width:800px){
     h2{
-        font-size: 2vw;
+        font-size: 2.4vw;
     }
 }
 @media only screen and (max-width:800px){
     #installation_block{
-        font-size: 2vw;
+        font-size: 2.4vw;
         transition: left.5s;
         -webkit-transition: width 0.3s ease, margin 0.3s ease;
         -moz-transition: width 0.3s ease, margin 0.3s ease;
