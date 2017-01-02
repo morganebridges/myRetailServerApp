@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,7 +82,7 @@ public class ProductController {
     @RequestMapping(path="/update", method = RequestMethod.PUT)
     ResponseEntity<Product> updateProduct(@RequestBody Product product){
         System.out.println(product.toString());
-        Integer id = product.id;
+        BigInteger id = product.id;
         Product updateProd = pRepo.findById(id);
         if(updateProd != null){
             System.out.println(updateProd.toString());
