@@ -82,12 +82,21 @@ public class ProductController {
     @RequestMapping(path="/update", method = RequestMethod.PUT)
     ResponseEntity<Product> updateProduct(@RequestBody Product product){
         System.out.println(product.toString());
+
         Integer sequence = product.sequence;
-        Product updateProd = pRepo.findById(sequence);
+        Product updateProd = pRepo.findById(product.id);
+        System.out.println("Find by id with id");
+        System.out.println(updateProd.toString());
+        System.out.println("Find by sequence with sequence");
+        Product seqProd = pRepo.findById(product.id);
+        System.out.println(seqProd.toString());
+
+
         if(updateProd != null){
             System.out.println(updateProd.toString());
             updateProd.name = product.name;
             updateProd.price = product.price;
+
             Product savedProd = pService.save(updateProd);
             if(savedProd != null){
                 System.out.println("Successfully saved");
