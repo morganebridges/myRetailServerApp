@@ -81,20 +81,8 @@ public class ProductController {
 
     @RequestMapping(path="/update", method = RequestMethod.PUT)
     ResponseEntity<Product> updateProduct(@RequestBody Product product){
-        System.out.println("Product from api");
-        System.out.println(product.toString());
-        List<Product> list = pRepo.findAll();
-        System.out.print(list.toString() + "\n");
-
-        System.out.println("parsing int from product.id");
         int searchId = Integer.parseInt(product.id);
         Product updateProd = pRepo.findById(searchId);
-        System.out.println("Find by id with id");
-        System.out.println(updateProd.toString());
-        //System.out.println("Find by sequence with sequence");
-        //Product seqProd = pRepo.findById(product.id);
-        //System.out.println(seqProd.toString());
-
 
         if(updateProd != null){
             System.out.println(updateProd.toString());
