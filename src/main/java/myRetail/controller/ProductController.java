@@ -28,11 +28,11 @@ public class ProductController {
     @Autowired
     ProductService pService;
 
-    @RequestMapping(path="/{id}")
-    public ResponseEntity<Product> getProduct(@PathVariable Integer id, HttpServletResponse response){
+    @RequestMapping(path="/{sequence}")
+    public ResponseEntity<Product> getProduct(@PathVariable Integer sequence, HttpServletResponse response){
         System.out.println("Running get method");
-        System.out.println(id);
-        Product prod = pRepo.findBySequence(id);
+        System.out.println(sequence);
+        Product prod = pRepo.findBySequence(sequence);
         System.out.println(prod.toString());
 
         if(prod != null)
@@ -82,8 +82,8 @@ public class ProductController {
     @RequestMapping(path="/update", method = RequestMethod.PUT)
     ResponseEntity<Product> updateProduct(@RequestBody Product product){
         System.out.println(product.toString());
-        String id = product.id;
-        Product updateProd = pRepo.findById(id);
+        Integer sequence = product.sequence;
+        Product updateProd = pRepo.findBySequence(sequence);
         if(updateProd != null){
             System.out.println(updateProd.toString());
             updateProd.name = product.name;
