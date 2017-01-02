@@ -81,7 +81,7 @@ public class ProductController {
     @RequestMapping(path="/update", method = RequestMethod.PUT)
     ResponseEntity<Product> updateProduct(@RequestBody Product product){
         System.out.println(product.toString());
-        String id = product.id;
+        Integer id = product.id;
         Product updateProd = pRepo.findById(id);
         if(updateProd != null){
             System.out.println(updateProd.toString());

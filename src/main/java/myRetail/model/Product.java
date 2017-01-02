@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 public class Product {
 
     @Id
-    public String id;
+    public int id;
     public Integer sequence;
     public String name;
     public Price price;
