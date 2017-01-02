@@ -77,26 +77,16 @@ body {
     #installation_block{
         height:380px;
     }
-    #operations_block{
-        height:380px;
-    }
 }
 @media only screen and (max-width:800px){
     h2{
-        font-size: 3vw;
+        font-size: 2vw;
     }
 }
 @media only screen and (max-width:800px){
     #installation_block{
-        font-size: 3vw;
+        font-size: 2vw;
         transition: left.5s;
-        -webkit-transition: width 0.3s ease, margin 0.3s ease;
-        -moz-transition: width 0.3s ease, margin 0.3s ease;
-        -o-transition: width 0.3s ease, margin 0.3s ease;
-        transition: width 0.3s ease, margin 0.3s ease;
-    }
-    #operations_block{
-        font-size: 3vw;
         -webkit-transition: width 0.3s ease, margin 0.3s ease;
         -moz-transition: width 0.3s ease, margin 0.3s ease;
         -o-transition: width 0.3s ease, margin 0.3s ease;
