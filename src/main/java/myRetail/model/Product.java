@@ -6,7 +6,7 @@ import java.math.BigInteger;
 
 public class Product {
 
-
+    String id;
     @Id
     public Integer sequence;
     public String name;
