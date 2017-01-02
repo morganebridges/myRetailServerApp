@@ -82,7 +82,7 @@ public class ProductController {
     @RequestMapping(path="/update", method = RequestMethod.PUT)
     ResponseEntity<Product> updateProduct(@RequestBody Product product){
         System.out.println(product.toString());
-        BigInteger id = product.id;
+        String id = product.id;
         Product updateProd = pRepo.findById(id);
         if(updateProd != null){
             System.out.println(updateProd.toString());
@@ -90,6 +90,7 @@ public class ProductController {
             updateProd.price = product.price;
             Product savedProd = pService.save(updateProd);
             if(savedProd != null){
+                System.out.println("Successfully saved");
                 return new ResponseEntity<Product>(savedProd, HttpStatus.OK);
             }
         }

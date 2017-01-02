@@ -36,7 +36,7 @@ config(['$locationProvider', '$routeProvider', function ($locationProvider, $rou
         $scope.currency_code='';
         console.log("Controller running");
 
-        $http.get("http://localhost:8686/products/getlist")
+        $http.get("http://52.39.83.97:8686/products/getlist")
             .then(
                 function successCalback(response){
 
@@ -71,7 +71,7 @@ config(['$locationProvider', '$routeProvider', function ($locationProvider, $rou
             console.log($scope.selected);
             $scope.products[$scope.selected.sequence -1] = $scope.selected;
             $scope.editMode = false;
-            $http.put("http://localhost:8686/products/update", $scope.selected)
+            $http.put("http://52.39.83.97:8686/products/update", $scope.selected)
             .then(function(response){
                 console.log("Successful update");
                 console.log(response);
