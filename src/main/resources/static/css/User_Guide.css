@@ -37,7 +37,6 @@ ul, ol {
 }
 #help_content{
     color:black;
-    overflow-y: scroll;
     margin-bottom: 20px;
     border: 2px outset black;
     box-shadow: 0 0 8px #027394 ;
