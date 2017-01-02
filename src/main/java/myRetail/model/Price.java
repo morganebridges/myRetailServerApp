@@ -3,6 +3,7 @@ package myRetail.model;
 public class Price {
     private double value;
     private String currency_code;
+
     public Price(){};
     public Price(double value, String currency_code){
         this.value = value;

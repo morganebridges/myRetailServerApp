@@ -50,7 +50,7 @@ public class Application {
             pService.save(new Product("Hat", new Price(9.72, "USD")));
 
             System.out.println("Adding watch");
-            pService.save(new Product("Hat", new Price(569.72, "USD")));
+            pService.save(new Product("Watch", new Price(569.72, "USD")));
 
 
 
