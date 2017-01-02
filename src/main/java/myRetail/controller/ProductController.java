@@ -81,6 +81,7 @@ public class ProductController {
 
     @RequestMapping(path="/update", method = RequestMethod.PUT)
     ResponseEntity<Product> updateProduct(@RequestBody Product product){
+        System.out.println("Product from api");
         System.out.println(product.toString());
 
         Integer sequence = product.sequence;
