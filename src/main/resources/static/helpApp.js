@@ -44,7 +44,7 @@ config(['$locationProvider', '$routeProvider', function ($locationProvider, $rou
                     products = response.data;
                     console.log(products);
                     for(var i = 0; i < products.length; i++){
-                        $scope.products[products[i].sequence - 1] = products[i];
+                        $scope.products[products[i].id - 1] = products[i];
                     }
                     console.log($scope.products);
                 }, function errorCallback(response){
@@ -52,10 +52,10 @@ config(['$locationProvider', '$routeProvider', function ($locationProvider, $rou
                 }
             );
 
-        $scope.select = function(seq){
-            console.log(seq);
+        $scope.select = function(id){
+            console.log(id);
             $scope.editMode = true;
-            $scope.selected = $scope.products[seq-1]
+            $scope.selected = $scope.products[id-1]
             $scope.name = $scope.selected.name;
             $scope.value = $scope.selected.price.value;
             $scope.currency_code = $scope.selected.price.currency_code;
@@ -69,7 +69,7 @@ config(['$locationProvider', '$routeProvider', function ($locationProvider, $rou
             if($scope.currencyCode)
                 $scope.selected.price.currency_code = $scope.currency_code;
             console.log($scope.selected);
-            $scope.products[$scope.selected.sequence -1] = $scope.selected;
+            $scope.products[$scope.selected.id -1] = $scope.selected;
             $scope.editMode = false;
             $http.put("http://52.39.83.97:8686/products/update", $scope.selected)
             .then(function(response){
