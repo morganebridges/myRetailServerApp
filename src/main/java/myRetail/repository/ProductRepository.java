@@ -11,5 +11,5 @@ public interface ProductRepository extends MongoRepository<Product, String> {
     public Product findByName(String firstName);
     public Product findBySequence(Integer sequence);
     public List<Product> findByPrice(String lastName);
-    public Product findById(String id);
+    public Product findById(int id);
 }
