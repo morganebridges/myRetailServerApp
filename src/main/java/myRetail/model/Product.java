@@ -6,7 +6,7 @@ public class Product {
 
     @Id
     public String id;
-
+    public Integer sequence;
     public String name;
     public Price price;
 

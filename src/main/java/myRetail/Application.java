@@ -5,6 +5,7 @@ import java.util.Arrays;
 import myRetail.model.Price;
 import myRetail.model.Product;
 import myRetail.repository.ProductRepository;
+import myRetail.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +17,8 @@ import org.springframework.context.annotation.Bean;
 public class Application {
     @Autowired
     ProductRepository pRepo;
+    @Autowired
+    ProductService pService;
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
@@ -35,19 +38,19 @@ public class Application {
             pRepo.deleteAll();
 
             System.out.println("Adding shoes");
-            pRepo.insert(new Product("Shoes", new Price(43.21, "USD")));
+            pService.save(new Product("Shoes", new Price(43.21, "USD")));
 
             System.out.println("Adding pants");
-            pRepo.insert(new Product("Pants", new Price(65.72, "USD")));
+            pService.save(new Product("Pants", new Price(65.72, "USD")));
 
             System.out.println("Adding gloves");
-            pRepo.insert(new Product("Gloves", new Price(17.72, "USD")));
+            pService.save(new Product("Gloves", new Price(17.72, "USD")));
 
             System.out.println("Adding shoes");
-            pRepo.insert(new Product("Hat", new Price(9.72, "USD")));
+            pService.save(new Product("Hat", new Price(9.72, "USD")));
 
             System.out.println("Adding watch");
-            pRepo.insert(new Product("Hat", new Price(569.72, "USD")));
+            pService.save(new Product("Hat", new Price(569.72, "USD")));
 
 
 
