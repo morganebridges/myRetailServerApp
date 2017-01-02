@@ -2,10 +2,12 @@ package myRetail.model;
 
 import org.springframework.data.annotation.Id;
 
+import java.math.BigInteger;
+
 public class Product {
 
     @Id
-    public int id;
+    public BigInteger id;
     public Integer sequence;
     public String name;
     public Price price;
