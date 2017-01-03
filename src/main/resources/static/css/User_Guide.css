@@ -35,6 +35,9 @@ ul, ol {
 
 
 }
+#browsePane{
+    overflow:hidden;
+}
 #help_content{
     color:black;
     margin-bottom: 20px;
