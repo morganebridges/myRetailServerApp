@@ -57,11 +57,13 @@
                     </div>
                     <div id="editPane" class="col-md-3 input-group ng-cloak" ng-show="editMode" ng-cloak style="width:90%">
                             <h3>Edit Product</h3>
-                            <form id="editProduct" >
-                                <input class="form-control" ng-model="name" aria-label="Name" type="text" name="name" value="{{selected.name}}">
-                                <input class="form-control" ng-model="value" type="text" name="value" aria-label="Price" value="{{selected.price.value}}">
-                                <input class="form-control" ng-model="currency_code" type="text" name="currencyCode" aria-label="Currency Code" value="{{selected.price.currency_code}}">
-                            </form>
+                            <div>
+                                <form id="editProduct" >
+                                    <input class="form-control" ng-model="name" aria-label="Name" type="text" name="name" value="{{selected.name}}">
+                                    <input class="form-control" ng-model="value" type="text" name="value" aria-label="Price" value="{{selected.price.value}}">
+                                    <input class="form-control" ng-model="currency_code" type="text" name="currencyCode" aria-label="Currency Code" value="{{selected.price.currency_code}}">
+                                </form>
+                            </div>
                             <div style="padding:10px">
                                 <br>
                                 <br>
