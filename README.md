@@ -8,7 +8,7 @@ MongoDB
 To build and launch this project, use this command from the project root directory:
 gradle clean build;java -jar build/libs/myRetailApp-0.1.0.jar
 
-REST API:
+<strong>REST API:</strong>
 The rest API of this application is made available both through the origin of the server app as well as through a RESTful
 communication cross-origin, because CORS is enabled through the Spring-Boot application.
 The endpoint specifications follow:
