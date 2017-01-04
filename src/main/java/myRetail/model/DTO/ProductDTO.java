@@ -24,6 +24,10 @@ public class ProductDTO {
      * A constructor - to be used for Products that already
      * exist in the system (since an ID (or Product.sequence))
      * has already been assigned.
+     *
+     * precondition : A product represented by this object has been saved in the database, with
+     *  a sequence number assigned via our Product service.
+     *
      * @param id - A sequence number for an existing product.
      * @param name - The name of a product
      * @param price - The instance of a Price class that represents
@@ -34,18 +38,18 @@ public class ProductDTO {
         this.name = name;
         this.price = price;
     }
+
+    /**
+     * A constructor - to be used primarily for produdcts that
+     * do not yet have
+     * @param name
+     * @param price
+     */
     public ProductDTO(String name, Price price){
         this.name = name;
         this.price = price;
     }
 
-    /**
-     * @param product - A member of the Product class to be converted.
-     * @return - A ProductDTO instance ready for API transmission
-     */
-    public static ProductDTO dtoFromProduct(Product product){
-        return new ProductDTO(product.sequence, product.name, product.price);
-    }
 
     public int getId() {
         return  id;

@@ -1,5 +1,6 @@
 package myRetail.service;
 
+import myRetail.model.DTO.ProductDTO;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

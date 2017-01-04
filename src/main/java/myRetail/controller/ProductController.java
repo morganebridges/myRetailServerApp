@@ -52,12 +52,14 @@ public class ProductController {
     }
 
     @RequestMapping(path="/add", method=RequestMethod.POST)
-    ResponseEntity<Product> insertProduct(ProductDTO insertProd){
-        Product newProd = new Product(insertProd.getName(), insertProd.getPrice());
-        pService.save(insertProd);
+    ResponseEntity<ProductDTO> insertProduct(@RequestBody ProductDTO insertProd){
+        //save to a product
+        Product saveProd = pService.save(insertProd);
+        //if no exceptions, turn back into DTO and return
+        ProductDTO returnProd = pService.dtoFromProduct(saveProd);
         if(returnProd != null)
-            return new ResponseEntity<Product>(returnProd, HttpStatus.OK);
-        return new ResponseEntity<Product>(returnProd, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<ProductDTO>(returnProd, HttpStatus.OK);
+        return new ResponseEntity<ProductDTO>(returnProd, HttpStatus.BAD_REQUEST);
     }
 
     @RequestMapping(path="/update", method = RequestMethod.PUT)
