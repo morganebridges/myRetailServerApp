@@ -14,7 +14,7 @@ communication cross-origin, because CORS is enabled through the Spring-Boot appl
 </p>
 <h3> JSON Specification </h3>
 <p> The services for this application communicate through the default Spring Boot Jackson specification.
-here is an example product:</p>
+Here is an example product:</p>
 <div>
   {
     "id" : 1,
