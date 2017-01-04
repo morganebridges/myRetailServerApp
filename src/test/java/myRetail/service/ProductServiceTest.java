@@ -15,6 +15,12 @@ import static org.junit.Assert.*;
 /**
  * Created by fjorgeDevelopers on 1/3/17.
  */
+/*Remember that david told us we could include
+    an "expected" param - as provided by junit
+    this is how we perform negative tests and get
+    our exceptions thrown for sucesss
+
+ */
 @RunWith( SpringJUnit4ClassRunner.class )
 @SpringBootTest
 public class ProductServiceTest {
@@ -26,7 +32,7 @@ public class ProductServiceTest {
         ProductDTO dto1 = new ProductDTO(1, "Test Prod 1", new Price(13.35, "USD"));
         Product dto1Prod = productService.save(dto1);
         System.out.println(dto1Prod.toString());
-        ProductDTO dto2 = new ProductDTO(1, "Test Prod 2", new Price(13.39, "CAN"));
+        ProductDTO dto2 = new ProductDTO(105, "Test Prod 2", new Price(13.39, "CAN"));
         System.out.println(dto1.toString());
         Product dto2Prod = productService.save(dto2);
         System.out.println(dto2Prod.toString());
