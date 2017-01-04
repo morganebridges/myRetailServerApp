@@ -1,6 +1,6 @@
 package myRetail.controller;
 
-import myRetail.model.ProductDTO;
+import myRetail.model.DTO.ProductDTO;
 import myRetail.repository.ProductRepository;
 import myRetail.service.ProductService;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -11,8 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
-import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -25,40 +23,21 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    ProductRepository pRepo;
+    private ProductRepository pRepo;
     @Autowired
-    ProductService pService;
+    private ProductService pService;
 
+    @CrossOrigin
     @RequestMapping(path="/{sequence}")
-    public ResponseEntity<Product> getProduct(@PathVariable Integer sequence, HttpServletResponse response){
+    public ResponseEntity<Product> getProduct(@PathVariable Integer sequence){
         System.out.println("Running get method");
         System.out.println(sequence);
         Product prod = pRepo.findBySequence(sequence);
         System.out.println(prod.toString());
 
-        if(prod != null)
-            return new ResponseEntity<>(prod, HttpStatus.OK);
         return new ResponseEntity<>(prod, HttpStatus.OK);
     }
-
-   /* @RequestMapping(path="/{ids}", method=RequestMethod.GET)
-    public ResponseEntity<List<Product>> getProducts(@RequestParam  List<String> ids, HttpServletResponse response){
-        List<Product> returnList = new ArrayList<>();
-        ids.forEach(
-                id -> {
-                    Product itProd = pRepo.findById(id);
-                    if(itProd != null)
-                        returnList.add(itProd);
-                }
-        );
-        return new ResponseEntity<>(returnList, HttpStatus.OK);
-    }*/
-
-    @RequestMapping(path = "/hello", method=RequestMethod.POST)
-    String hello(@RequestBody String name ) {
-        return "Hello, " + name + "!";
-    }
-
+    @CrossOrigin
     @RequestMapping(path="/getlist", method=RequestMethod.GET)
     ResponseEntity<List<ProductDTO>> getProductTest(HttpServletResponse response){
         response.addHeader("Access-Control-Allow-Origin", "*");
@@ -73,10 +52,9 @@ public class ProductController {
     }
 
     @RequestMapping(path="/add", method=RequestMethod.POST)
-    ResponseEntity<Product> insertProduct(ProductDTO insertProd, HttpServletResponse response){
+    ResponseEntity<Product> insertProduct(ProductDTO insertProd){
         Product newProd = new Product(insertProd.getName(), insertProd.getPrice());
-        Product returnProd = pRepo.insert(newProd);
-
+        pService.save(insertProd);
         if(returnProd != null)
             return new ResponseEntity<Product>(returnProd, HttpStatus.OK);
         return new ResponseEntity<Product>(returnProd, HttpStatus.BAD_REQUEST);
