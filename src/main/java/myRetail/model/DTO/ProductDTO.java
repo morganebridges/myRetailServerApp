@@ -75,4 +75,10 @@ public class ProductDTO {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return String.format(
+                "Product[id=%s, Name='%s', Price='%s']",
+                id, name, price);
+    }
 }

@@ -23,8 +23,14 @@ public class ProductService {
         if(product == null){
             throw new IllegalArgumentException("Attempting to save a null product");
         }
-
-        if(product.sequence == null){
+        //If the product exists in the db already
+        if(product.id != null){
+            Product loadProduct = pRepo.findById(product.id);
+            if(loadProduct.sequence != product.sequence)
+                //throw new illegalArgu
+        }
+        //the product is new
+        if(product.sequence == null || product.sequence == 0){
             List<Product>pList = pRepo.findAll();
             product.sequence = pList.size() + 1;
         }

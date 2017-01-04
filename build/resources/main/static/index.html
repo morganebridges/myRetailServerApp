@@ -45,9 +45,9 @@
             </div>
         </div>
         <div class="row active">
-            <div id="browsePane" class="col-md-9" ng-hide="editMode">
+            <div id="browsePane" class="col-md-9" >
                 <div class="row active rounded_border" id="help_content" style="z-index:5">
-                    <div id="installation_block">
+                    <div id="installation_block" ng-hide="editMode">
                         <p id="introduction" style="margin:5px">
 
                         <div class="list-group" style="width:90%" >
@@ -55,25 +55,23 @@
                         </div>
 
                     </div>
-
+                    <div id="editPane" class="col-md-3 ng-cloak" ng-show="editMode" ng-cloak style="width:90%">
+                            <h3>Edit Product</h3>
+                            <div class="input-group">
+                                <form id="editProduct" >
+                                    <input class="form-control" ng-model="name" aria-label="Name" type="text" name="name" value="{{selected.name}}">
+                                    <input class="form-control" ng-model="value" type="text" name="value" aria-label="Price" value="{{selected.price.value}}">
+                                    <input class="form-control" ng-model="currency_code" type="text" name="currencyCode" aria-label="Currency Code" value="{{selected.price.currency_code}}">
+                                </form>
+                            </div>
+                            <div style="padding-top:6px">
+                                <button type="button" class="btn-default" ng-click="save()">Save</button>
+                                <button type="button" class="btn-default" ng-click="cancel()">Cancel</button>
+                            </div>
+                    </div>
                 </div>
             </div>
-            <div id="editPane" class="col-md-3 input-group ng-cloak" ng-show="editMode" ng-cloak>
 
-                <div class="container">
-                    <h3>Edit Product</h3>
-                    <form id="editProduct" style="width:90%">
-                        <input class="form-control" ng-model="name" aria-label="Name" type="text" name="name" value="{{selected.name}}">
-                        <input class="form-control" ng-model="value" type="text" name="value" aria-label="Price" value="{{selected.price.value}}">
-                        <input class="form-control" ng-model="currency_code" type="text" name="currencyCode" aria-label="Currency Code" value="{{selected.price.currency_code}}">
-                    </form>
-                </div>
-                <div class="container">
-                    <br>
-                    <button type="button" class="btn-default" ng-click="save()">Save</button>
-                    <button type="button" class="btn-default" ng-click="cancel()">Cancel</button>
-                </div>
-            </div>
         </div>
     </div>
 </div>
