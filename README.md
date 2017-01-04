@@ -29,7 +29,6 @@ here is an example product:</p>
 <p>The endpoint specifications follow:</p>
 <strong><h3>{host}/products/{sequence} :</h3></strong>
 Http method: GET <br>
-
 <p>This endpoint is to load the JSON document that represents a product within the database. the "sequence" field is set
 by the Spring application and is a unique integer. It is visibile from client and server applications throughout the system.
 </p>
