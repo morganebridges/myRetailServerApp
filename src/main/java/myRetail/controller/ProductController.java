@@ -40,11 +40,6 @@ public class ProductController {
     @CrossOrigin
     @RequestMapping(path="/getlist", method=RequestMethod.GET)
     ResponseEntity<List<ProductDTO>> getProductTest(HttpServletResponse response){
-        response.addHeader("Access-Control-Allow-Origin", "*");
-        response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-        response.addHeader("Access-Control-Allow-Headers", "Content-Type");
-        response.addHeader("Access-Control-Max-Age", "1800");//30 min
-
         List<ProductDTO> returnList = pService.getAllDTO();
         if(returnList != null)
             return new ResponseEntity<>(returnList, HttpStatus.OK);

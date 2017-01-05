@@ -34,6 +34,8 @@ public class ProductDTO {
      *              a Product's value and currency type.
      */
     public ProductDTO(int  id, String name, Price price){
+        if(id==0)
+            throw new IllegalArgumentException("Invalid ID provided");
         this. id =  id;
         this.name = name;
         this.price = price;
@@ -56,6 +58,8 @@ public class ProductDTO {
     }
 
     public void setId(int  id) {
+        if(id == 0)
+            throw new IllegalArgumentException("Invalid id provided");
         this. id =  id;
     }
 
