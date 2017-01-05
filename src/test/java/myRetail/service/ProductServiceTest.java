@@ -1,9 +1,12 @@
 package myRetail.service;
 
+import com.mongodb.Cursor;
 import com.mongodb.DBCollection;
+import com.mongodb.DBObject;
 import myRetail.model.DTO.ProductDTO;
 import myRetail.model.Price;
 import myRetail.model.Product;
+import myRetail.repository.ProductRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,24 +15,23 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
 /**
- * Created by fjorgeDevelopers on 1/3/17.
+ * A class created to test our product class' services layer.
  */
-/*Remember that david told us we could include
-    an "expected" param - as provided by junit
-    this is how we perform negative tests and get
-    our exceptions thrown for sucesss
 
- */
 @RunWith( SpringJUnit4ClassRunner.class )
 @SpringBootTest
 public class ProductServiceTest {
     @Autowired
     ProductService productService;
+    @Autowired
+    ProductRepository productRepository;
     @Autowired
     MongoTemplate mongoTemp;
 
@@ -66,10 +68,36 @@ public class ProductServiceTest {
 
     @Test
     public void getAllDTO() throws Exception {
-        //DBCollection list = mongoTemp.getDb().getCollection();
+        //A list of all products
+        Product p1 = new Product("Prod 1", new Price(1.25, "USD"));
+        p1 = productService.save(p1);
+        System.out.println(p1.toString());
 
-        System.out.println("Look in the list");
+        Product p2 = new Product("Prod 2", new Price(1.40, "USD"));
+        p2 = productService.save(p2);
+        System.out.println(p2.toString());
 
+        List<Product> pList = productRepository.findAll();
+        HashMap<Integer, Product> prodMap = new HashMap<>();
+        //Create a map of sequences numbers to products, consequently
+        pList.forEach(
+                product -> {
+                    System.out.println("Mapping:" + product.toString());
+                    prodMap.put(product.sequence, product);
+            }
+        );
+        /*A list of product DTOs from the services layer, should match
+         * the list from the repository.
+         */
+        List<ProductDTO> dtoList = productService.getAllDTO();
+        dtoList.forEach(
+              dto ->{
+                  System.out.println("Asserting validity:" + dto.toString());
+                  /*for each of our dtos, there should be a corresponding
+                   * entry in the hashmap based on sequence key */
+                  assert(prodMap.keySet().contains(dto.getId()));
+              }
+        );
 
     }
 
