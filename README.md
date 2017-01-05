@@ -1,8 +1,9 @@
 # myRetailServerApp
+This application was developed as a technical sample. The server application itself is created from Spring Boot, the data source is the Spring Boot MongoDB integration. I built the frontend app (which is stored in the /resources/static folder) with AngularJS version 1 and Bootstrap CSS for styling.
 
 In order to use this project, you will need the following applications available through your path:
-Gradle 2.3+
-MongoDB
+Gradle 2.9+
+MongoDB available through the CLI.
 
 
 To build and launch this project, use this command from the project root directory:
@@ -14,7 +15,7 @@ communication cross-origin, because CORS is enabled through the Spring-Boot appl
 </p>
 <h3> JSON Specification </h3>
 <p> The services for this application communicate through the default Spring Boot Jackson specification.
-here is an example product:</p>
+Here is an example product:</p>
 <div>
   {
     "id" : 1,
