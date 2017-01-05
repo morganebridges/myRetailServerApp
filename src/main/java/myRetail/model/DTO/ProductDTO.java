@@ -1,7 +1,5 @@
 package myRetail.model.DTO;
-
 import myRetail.model.Price;
-import myRetail.model.Product;
 
 /**
  * A Data Transfer Object (DTO) class. This class is created so that there
