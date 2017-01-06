@@ -42,10 +42,7 @@ Http method: GET<br>
 <p>This endpoint exists for the purpose of requesting a full list of products within the system. With the current version of
  the version, no filtering is available, but this feature would certainly be considered for a future improvement. 
 </p>
-<strong><h3>{host}/products/add </h3></strong>
-Http method: POST<br>
-<p>This method is for inserting new products into the database from the client application.
-</p>
+
 <strong><h3>{host}/products/update </h3></strong> (also aliased at {host}/products/ with a ProductDTO request body)
 Http method: PUT<br>
 Given a valid existing product Model, this endpoint will update name and price fields for that
