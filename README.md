@@ -6,8 +6,8 @@ Gradle 2.9+
 MongoDB available through the CLI.
 
 
-To build and launch this project, use this command from the project root directory:
-gradle clean build;java -jar build/libs/myRetailApp-0.1.0.jar
+To build and launch this project, use this command from the project root directory:<br>
+<strong>gradle clean build;java -jar build/libs/myRetailApp-0.1.0.jar</strong>
 
 <h2><strong>REST API:</strong></h2>
 <p>The rest API of this application is made available both through the origin of the server app as well as through a RESTful
