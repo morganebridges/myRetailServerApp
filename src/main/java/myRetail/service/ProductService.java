@@ -21,16 +21,9 @@ public class ProductService {
         if(product == null){
             throw new IllegalArgumentException("Attempting to save a null product");
         }
-        //If the product exists in the db already
-        /*if(product.id != null){
-            Product loadProduct = pRepo.findById(product.id);
-            if(loadProduct.sequence != product.sequence)
-                //throw new illegalArgu
-        }*/
         //the product is new
         if(product.sequence == null || product.sequence == 0){
-            List<Product>pList = pRepo.findAll();
-            product.sequence = pList.size() + 1;
+           product.sequence = getNextSequence();
         }
         Product theReturn = pRepo.save(product);
         return theReturn;
@@ -88,5 +81,12 @@ public class ProductService {
      */
     public ProductDTO dtoFromProduct(Product product){
         return new ProductDTO(product.sequence, product.name, product.price);
+    }
+    public Product findBySequence(Integer sequence){
+        return pRepo.findBySequence(sequence);
+    }
+    public Integer getNextSequence(){
+        List<Product>pList = pRepo.findAll();
+        return pList.size() + 1;
     }
 }

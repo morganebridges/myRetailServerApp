@@ -1,5 +1,6 @@
 package myRetail.model.DTO;
 import myRetail.model.Price;
+import myRetail.model.Product;
 
 /**
  * A Data Transfer Object (DTO) class. This class is created so that there
@@ -8,14 +9,11 @@ import myRetail.model.Price;
  * more internal data to a project at a later date.
  */
 public class ProductDTO {
-    /* A ProductDTO considers it's 'id' to be what a Product instance
-    * would consider it's 'sequence' field
+    /* A ProductDTO's id field mapps to the Product model's "sequence" field
     * */
-    private int  id;
+    private Integer  id;
     private String name;
-
     private Price price;
-
     public ProductDTO(){}
 
     /**
@@ -38,10 +36,9 @@ public class ProductDTO {
         this.name = name;
         this.price = price;
     }
-
     /**
-     * A constructor - to be used primarily for produdcts that
-     * do not yet have
+     * A constructor - to be used primarily for products that
+     * do not yet have sequences
      * @param name
      * @param price
      */
@@ -49,8 +46,13 @@ public class ProductDTO {
         this.name = name;
         this.price = price;
     }
-
-
+    public ProductDTO(Product product){
+        if(product.sequence == 0)
+            throw new IllegalArgumentException("Provided product had an invalid sequence value");
+        this.id = product.sequence;
+        this.name = product.name;
+        this.price = product.price;
+    }
     public int getId() {
         return  id;
     }

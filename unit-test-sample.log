@@ -1,0 +1,16 @@
+017-01-06 04:23:56.628  WARN 7404 --- [           main] myRetail.service.ProductServiceTest      : TEST: Saving 0 ID should throw an exception(Instantiation) - PASS
+2017-01-06 04:23:56.635  WARN 7404 --- [           main] myRetail.service.ProductServiceTest      : Testing that getting all products for DTO transfer is valid
+2017-01-06 04:23:56.645  WARN 7404 --- [           main] myRetail.service.ProductServiceTest      : Product[sequence=6 id=586f703c7ea7941cec1a701e, Name='Prod 1', Price='Price[value=1.250000, currency_code=USD ]']
+2017-01-06 04:23:56.655  WARN 7404 --- [           main] myRetail.service.ProductServiceTest      : Product[sequence=7 id=586f703c7ea7941cec1a701f, Name='Prod 2', Price='Price[value=1.400000, currency_code=USD ]']
+2017-01-06 04:23:56.667  WARN 7404 --- [           main] myRetail.service.ProductServiceTest      : Asserting validity:Product[id=1, Name='Shoes', Price='Price[value=43.210000, currency_code=USD ]']
+2017-01-06 04:23:56.668  WARN 7404 --- [           main] myRetail.service.ProductServiceTest      : Asserting validity:Product[id=2, Name='Pants', Price='Price[value=65.720000, currency_code=USD ]']
+2017-01-06 04:23:56.668  WARN 7404 --- [           main] myRetail.service.ProductServiceTest      : Asserting validity:Product[id=3, Name='Gloves', Price='Price[value=17.720000, currency_code=USD ]']
+2017-01-06 04:23:56.669  WARN 7404 --- [           main] myRetail.service.ProductServiceTest      : Asserting validity:Product[id=4, Name='Hat', Price='Price[value=9.720000, currency_code=USD ]']
+2017-01-06 04:23:56.669  WARN 7404 --- [           main] myRetail.service.ProductServiceTest      : Asserting validity:Product[id=5, Name='Watch', Price='Price[value=569.720000, currency_code=USD ]']
+2017-01-06 04:23:56.669  WARN 7404 --- [           main] myRetail.service.ProductServiceTest      : Asserting validity:Product[id=6, Name='Prod 1', Price='Price[value=1.250000, currency_code=USD ]']
+2017-01-06 04:23:56.669  WARN 7404 --- [           main] myRetail.service.ProductServiceTest      : Asserting validity:Product[id=7, Name='Prod 2', Price='Price[value=1.400000, currency_code=USD ]']
+2017-01-06 04:23:56.707  WARN 7404 --- [           main] myRetail.service.ProductServiceTest      : TEST: Assert  Updating Product model from DTO
+2017-01-06 04:23:56.708  WARN 7404 --- [           main] myRetail.service.ProductServiceTest      : TEST: Updating product from DTO - Passed
+2017-01-06 04:23:56.723  WARN 7404 --- [           main] myRetail.service.ProductServiceTest      : TEST: Saving out of bounds ID should throw an exception(Instantiation) - PASS
+
+//Refactor desire - create a custom logging level for manual logging via testing and output from application.
