@@ -1,13 +1,17 @@
-# myRetailServerApp
+# myRetailApp
 This application was developed as a technical sample. The server application itself is created from Spring Boot, the data source is the Spring Boot MongoDB integration. I built the frontend app (which is stored in the /resources/static folder) with AngularJS version 1 and Bootstrap CSS for styling.
 
 In order to use this project, you will need the following applications available through your path:
 Gradle 2.9+
 MongoDB available through the CLI.
 
+The Application.properties file is under src/main/resources, and can be used to set configuration settings for the app. Things including server port (default 8686), logging file, and logging levels can be set there.
 
 To build and launch this project, use this command from the project root directory:<br>
-<strong>gradle clean build;java -jar build/libs/myRetailApp-0.1.0.jar</strong>
+<strong>mvn clean install;java -jar build/libs/myRetailApp-0.1.0.jar</strong>
+
+
+Once the application is built, it can be visited by browsing to : {host}:{port}, and the angular JS app is there. Static content is being served from the src/resources/static folder, and this is where the index.html file is being served from.
 
 <h2><strong>REST API:</strong></h2>
 <p>The rest API of this application is made available both through the origin of the server app as well as through a RESTful
