@@ -46,7 +46,7 @@ Http method: GET<br>
 Http method: POST<br>
 <p>This method is for inserting new products into the database from the client application.
 </p>
-<strong><h3>{host}/products/update </h3></strong>
+<strong><h3>{host}/products/update </h3></strong> (also aliased at {host}/products/ with a ProductDTO request body)
 Http method: PUT<br>
 Given a valid existing product Model, this endpoint will update name and price fields for that
 instance.
