@@ -1,5 +1,6 @@
 package myRetail.controller;
 import myRetail.model.DTO.ProductDTO;
+import myRetail.model.Price;
 import myRetail.repository.ProductRepository;
 import myRetail.service.ProductService;
 import org.slf4j.Logger;
@@ -45,17 +46,6 @@ public class ProductController {
         if(returnList != null)
             return new ResponseEntity<>(returnList, HttpStatus.OK);
         return new ResponseEntity<>(returnList, HttpStatus.BAD_REQUEST);
-    }
-
-    @RequestMapping(path="/add", method=RequestMethod.POST)
-    ResponseEntity<ProductDTO> insertProduct(@RequestBody ProductDTO insertProd){
-        //save to a product
-        Product saveProd = pService.save(insertProd);
-        //if no exceptions, turn back into DTO and return
-        ProductDTO returnProd = pService.dtoFromProduct(saveProd);
-        if(returnProd != null)
-            return new ResponseEntity<ProductDTO>(returnProd, HttpStatus.OK);
-        return new ResponseEntity<ProductDTO>(returnProd, HttpStatus.BAD_REQUEST);
     }
 
     @RequestMapping(path="/update", method = RequestMethod.PUT)

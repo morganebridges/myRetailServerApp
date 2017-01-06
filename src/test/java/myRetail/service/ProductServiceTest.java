@@ -1,4 +1,5 @@
 package myRetail.service;
+import myRetail.controller.ProductController;
 import myRetail.model.DTO.ProductDTO;
 import myRetail.model.Price;
 import myRetail.model.Product;

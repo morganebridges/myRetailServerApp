@@ -43,6 +43,7 @@ public class ProductDTO {
      * @param price
      */
     public ProductDTO(String name, Price price){
+        this.id = 0;
         this.name = name;
         this.price = price;
     }
@@ -57,9 +58,9 @@ public class ProductDTO {
         return  id;
     }
 
-    public void setId(int  id) {
+    public void setId(int id) {
         if(id == 0)
-            throw new IllegalArgumentException("Invalid id provided");
+            throw new IllegalArgumentException("Provided product had an invalid sequence value");
         this. id =  id;
     }
 

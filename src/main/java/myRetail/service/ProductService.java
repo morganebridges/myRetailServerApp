@@ -25,8 +25,8 @@ public class ProductService {
         if(product.sequence == null || product.sequence == 0){
            product.sequence = getNextSequence();
         }
-        Product theReturn = pRepo.save(product);
-        return theReturn;
+        return pRepo.save(product);
+
     }
 
     /**
@@ -41,6 +41,7 @@ public class ProductService {
      */
     public Product save(ProductDTO prodDTO) throws IllegalArgumentException{
         //If this dto has a sequence number, there should be an existing Product
+        System.out.println(prodDTO.toString());
         if(prodDTO.getId() != 0){
             Product prod = pRepo.findBySequence(prodDTO.getId());
             if(prod == null)
@@ -53,7 +54,7 @@ public class ProductService {
             }
         }
         //we are creating a new product
-        Product prod = new Product(prodDTO.getName(), prodDTO.getPrice());
+        Product prod = new Product(getNextSequence(), prodDTO.getName(), prodDTO.getPrice());
         return save(prod);
     }
 
